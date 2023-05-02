@@ -19,6 +19,9 @@ const NavBar = () => {
           <Link to='/filtered-search'>Filtered Search</Link>
         </li>
         <li>
+          <Link to='/filtered-search-db'>Filtered Search DB</Link>
+        </li>
+        <li>
           <Link to='/stock-chart'>Stock Chart</Link>
         </li>
         <li>

@@ -27,6 +27,7 @@ const FilteredSearch = () => {
     const filteredSymbols = symbolNames.filter(([symbol, name]) =>
       name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    setSearchTerm('');
     console.log('Filtered symbols:', filteredSymbols);
   };
 
