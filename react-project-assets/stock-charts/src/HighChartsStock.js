@@ -29,6 +29,7 @@ const getOptions = type => ({
 const HighChartsStock = () => {
   return (
     <div style={{ maxWidth: '80%', margin: '4rem' }}>
+      <h1>HighChartsStock.js</h1>
       <HighchartsReact highcharts={Highcharts} options={getOptions('line')} />
       <HighchartsReact highcharts={Highcharts} options={getOptions('spline')} />
       <HighchartsReact highcharts={Highcharts} options={getOptions('area')} />

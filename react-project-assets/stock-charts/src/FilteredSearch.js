@@ -37,6 +37,7 @@ const FilteredSearch = () => {
 
   return (
     <div>
+      <h1>FilteredSearch.js</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Filter by company name:

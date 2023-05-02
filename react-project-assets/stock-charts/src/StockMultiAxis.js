@@ -73,6 +73,7 @@ const Chart = () => {
 
   return (
     <>
+      <h1>StockMultiAxis.js</h1>
       <div id='container' />
     </>
   );
