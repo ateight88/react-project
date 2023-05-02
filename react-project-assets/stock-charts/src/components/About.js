@@ -18,6 +18,8 @@ const About = () => {
         This was my first attemtp with getting data from Alaphvantage using
         Plotly.js
       </p>
+      <h3>FilteredSearch</h3>
+      <p>This is a basic filtered search with show hide for data list</p>
       <h3>StockChart</h3>
       <p>
         This is a dropdown option to choose a single company - currently using

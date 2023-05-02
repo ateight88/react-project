@@ -5,7 +5,6 @@ const symbolNames = [
   ['GOOGL', 'Alphabet Inc.'],
   ['MSFT', 'Microsoft Corporation'],
   ['META', 'Meta'],
-  ['AAPL', 'Apple'],
   ['AMZN', 'Amazon'],
   ['NFLX', 'Netflix'],
 ];
@@ -18,9 +17,17 @@ const FilteredSearch = () => {
     setSearchTerm(event.target.value);
   };
 
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   console.log(`Submit with search term: ${searchTerm}`);
+  // };
+
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(`Submit with search term: ${searchTerm}`);
+    const filteredSymbols = symbolNames.filter(([symbol, name]) =>
+      name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    console.log('Filtered symbols:', filteredSymbols);
   };
 
   const filteredSymbols = symbolNames.filter(([symbol, name]) =>
@@ -38,63 +45,45 @@ const FilteredSearch = () => {
   return (
     <div>
       <h1>FilteredSearch.js</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Filter by company name:
-          <input type='text' value={searchTerm} onChange={handleSearchChange} />
-        </label>
-        <button type='submit'>Search</button>
+      <p>Filter by company name:</p>
 
-        {!showModal ? (
-          <button type='button' onClick={handleShowModal}>
-            Show List
-          </button>
-        ) : (
-          <button type='button' onClick={handleCloseModal}>
-            Close
-          </button>
-        )}
-      </form>
+      {!showModal ? (
+        <button type='button' onClick={handleShowModal}>
+          Show List
+        </button>
+      ) : (
+        <button type='button' onClick={handleCloseModal}>
+          Close
+        </button>
+      )}
       {showModal && (
         <div className='modal'>
           <div className='modal-content'>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Filter by company name:
+                <input
+                  type='text'
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                />
+              </label>
+              <button type='submit'>Search</button>
+            </form>
             <ul>
               {filteredSymbols.map(([symbol, name]) => (
                 <li key={symbol}>{`${name} (${symbol})`}</li>
               ))}
             </ul>
+            <button type='button' onClick={handleCloseModal}>
+              Close
+            </button>
           </div>
         </div>
       )}
     </div>
   );
 };
-
-<style>{`
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.modal-content button {
-  float: right;
-}
-`}</style>;
 
 export default FilteredSearch;
 
