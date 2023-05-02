@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './components/About';
+import FilteredSearch from './FilteredSearch';
 import Stock from './Stock';
 import StockChart from './StockChart';
 import StockChartAll from './StockChartAll';
@@ -37,6 +38,7 @@ function App() {
         <Route exact path='/' element={<About />} />
         <Route exact path='/news' element={<News />} />
         <Route path='/stock' element={<Stock />} />
+        <Route path='/filtered-search' element={<FilteredSearch />} />
         <Route path='/stock-chart' element={<StockChart />} />
         <Route path='/stock-chart-all' element={<StockChartAll />} />
         <Route path='/stock-multi-axis' element={<StockMultiAxis />} />
